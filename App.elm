@@ -85,6 +85,9 @@ view model =
           [ text "Nouvelle multiplication" ]
         , button [ class "button is-primary", onClick ShowRes ]
           [ text "Montrer résultat"]]
+      , div []
+        [ a [ href "https://github.com/romaintailhurat/multiplo" ]
+          [ text "[ source code ]"] ]
       ]
     ]
 
