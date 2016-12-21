@@ -1,7 +1,21 @@
 import Html exposing (..)
+import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Random
 import Tuple exposing (first, second)
+
+-- CSS
+
+stylesheet link =
+    let
+        tag = "link"
+        attrs =
+            [ attribute "rel"       "stylesheet"
+            , attribute "property"  "stylesheet"
+            , attribute "href"      link
+            ]
+        children = []
+    in node tag attrs children
 
 -- Number
 
@@ -62,14 +76,16 @@ subscriptions model =
 view : Model -> Html Msg
 view model =
   div []
-    [ div []
-      [ text ( "DEBUG" ++ (toString model) ) ]
-    , div []
-      [ button [ onClick Gen ] [ text "Nouvelle multiplication" ] ]
-    , div []
-      [ text (displayMult model) ]
-    , div []
-      [ button [ onClick ShowRes ] [ text "Montrer résultat"]]
+    [ stylesheet "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css"
+    , div [ class "container" ]
+      [ div [ style [("font-size", "20em")] ]
+        [ text (displayMult model) ]
+      , div []
+        [ button [ class "button is-primary", onClick Gen ]
+          [ text "Nouvelle multiplication" ]
+        , button [ class "button is-primary", onClick ShowRes ]
+          [ text "Montrer résultat"]]
+      ]
     ]
 
 main =
