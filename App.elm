@@ -5,7 +5,7 @@ import Random
 import Tuple exposing (first, second)
 
 -- CSS
-
+stylesheet : String -> Html msg
 stylesheet link =
     let
         tag = "link"
@@ -91,6 +91,7 @@ view model =
       ]
     ]
 
+main : Program Never Model Msg
 main =
   Html.program
     { init = init
